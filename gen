@@ -1,0 +1,7 @@
+pyuic5 -o $1.py $1.ui
+if [ $? -eq 0 ]
+then
+  echo "$1.py Generated!"
+else
+  echo "Failed to generate $1.py ! ! !"
+fi

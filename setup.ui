@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>frmMain</class>
+ <widget class="QWidget" name="frmMain">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>857</width>
+    <height>650</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Generate MariaDB Docker Setup</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>Name this Setup</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0" colspan="2">
+    <widget class="QCommandLinkButton" name="cbGen">
+     <property name="text">
+      <string>Generate MariaDB Docker-Compose Scripts</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="label_6">
+     <property name="text">
+      <string>MariaDB Configuration</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QLineEdit" name="txtSetupName">
+     <property name="text">
+      <string>mariadb-ha</string>
+     </property>
+     <property name="clearButtonEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="2">
+    <widget class="QTabWidget" name="tab">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>49</height>
+      </size>
+     </property>
+     <property name="tabPosition">
+      <enum>QTabWidget::North</enum>
+     </property>
+     <property name="tabShape">
+      <enum>QTabWidget::Rounded</enum>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <property name="elideMode">
+      <enum>Qt::ElideNone</enum>
+     </property>
+     <property name="documentMode">
+      <bool>true</bool>
+     </property>
+     <property name="movable">
+      <bool>true</bool>
+     </property>
+     <property name="tabBarAutoHide">
+      <bool>false</bool>
+     </property>
+     <widget class="QWidget" name="tabMariaDB">
+      <attribute name="title">
+       <string>MariaDB Configuration</string>
+      </attribute>
+      <layout class="QFormLayout" name="formLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Number of MariaDB Nodes</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>MariaDB Version to Use</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QComboBox" name="cbServerVersion">
+         <item>
+          <property name="text">
+           <string>Latest</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>MariaDB 10.5</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>MariaDB 10.4</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>MariaDB 10.3</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>MariaDB 10.2</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QSpinBox" name="txtServerNodes">
+         <property name="toolTip">
+          <string>Number of MariaDB Nodes, 1 to 7 Server nodes allowed</string>
+         </property>
+         <property name="minimum">
+          <number>1</number>
+         </property>
+         <property name="maximum">
+          <number>7</number>
+         </property>
+         <property name="value">
+          <number>3</number>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QCheckBox" name="ckAcidCompliance">
+         <property name="toolTip">
+          <string>Enable binlog, relaylog sync and flush_trx_commit to 1 for maximum durability</string>
+         </property>
+         <property name="text">
+          <string>MariaDB ACID Compliance/Durability</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QCheckBox" name="ckEncryption">
+         <property name="toolTip">
+          <string>Enable File Key Plugin based Encryption</string>
+         </property>
+         <property name="text">
+          <string>MariaDB Encryption at rest - TDE</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tabMaxScale">
+      <attribute name="title">
+       <string>MaxScale Configuration</string>
+      </attribute>
+      <layout class="QFormLayout" name="formLayout_2">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>Number of MaxScale Nodes</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QSpinBox" name="txtMaxScaleNodes">
+         <property name="toolTip">
+          <string>Number of MaxScale nodes for HA, 1 to 4 MaxScale allowed</string>
+         </property>
+         <property name="minimum">
+          <number>1</number>
+         </property>
+         <property name="maximum">
+          <number>4</number>
+         </property>
+         <property name="singleStep">
+          <number>1</number>
+         </property>
+         <property name="value">
+          <number>2</number>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_5">
+         <property name="text">
+          <string>MaxScale Version to Use</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QComboBox" name="cbMaxScaleVersion">
+         <item>
+          <property name="text">
+           <string>Latest</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>MaxScale 2.5</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>MaxScale 2.4</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>MaxScale 2.3</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QCheckBox" name="ckCooperativeMonitoring">
+         <property name="toolTip">
+          <string>Enable Cooperative Monitoring (MaxScale 2.5 or higher)</string>
+         </property>
+         <property name="text">
+          <string>MaxScale Cooperative Monitoring</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QCheckBox" name="ckTransactionReplay">
+         <property name="toolTip">
+          <string>Transaction Replay enabled for durability (MaxScale 2.4 or higher)</string>
+         </property>
+         <property name="text">
+          <string>Transaction Replay</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QCheckBox" name="ckCausalReads">
+         <property name="toolTip">
+          <string>Enable Causal Reads to enforce consistent reads (MaxScale 2.3 or higher)</string>
+         </property>
+         <property name="text">
+          <string>Causal Reads</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QCheckBox" name="ckAutoFailover">
+         <property name="toolTip">
+          <string>Enable Automatic Database Failover/Rejoin (MaxScale 2.2 or higher)</string>
+         </property>
+         <property name="text">
+          <string>Auto Failover</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <widget class="QPlainTextEdit" name="txtServerConfig">
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1" colspan="2">
+    <widget class="QPlainTextEdit" name="txtMaxScaleConfig">
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QLabel" name="label_7">
+     <property name="text">
+      <string>MaxScale Configuration</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>txtSetupName</tabstop>
+  <tabstop>tab</tabstop>
+  <tabstop>txtServerNodes</tabstop>
+  <tabstop>cbServerVersion</tabstop>
+  <tabstop>ckAcidCompliance</tabstop>
+  <tabstop>ckEncryption</tabstop>
+  <tabstop>txtMaxScaleNodes</tabstop>
+  <tabstop>cbMaxScaleVersion</tabstop>
+  <tabstop>ckCooperativeMonitoring</tabstop>
+  <tabstop>ckTransactionReplay</tabstop>
+  <tabstop>ckCausalReads</tabstop>
+  <tabstop>ckAutoFailover</tabstop>
+  <tabstop>cbGen</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
