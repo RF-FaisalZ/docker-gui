@@ -15,5 +15,3 @@ if __name__ == '__main__':
     widget = GeneratorWindow()
     widget.show()
     app.exec_()
-
-# This is a test
