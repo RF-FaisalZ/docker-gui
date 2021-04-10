@@ -9,6 +9,10 @@ class GeneratorWindow(qtw.QWidget):
         self.ui = Ui_frmMain()
         self.ui.setupUi(self)
 
+        self.ui.ckAutoFailover.stateChanged.connect(self.doSomething)
+    
+    def doSomething(self):
+        self.ui.txtServerConfig.setPlainText("AUTO_FAILOVER = True")
 
 if __name__ == '__main__':
     app = qtw.QApplication([])
